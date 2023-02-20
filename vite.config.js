@@ -2,7 +2,7 @@
  * @Author: Dzy
  * @Date: 2023-02-20 16:41:24
  * @LastEditors: Dzy
- * @LastEditTime: 2023-02-20 17:09:56
+ * @LastEditTime: 2023-02-20 17:53:55
  * @Description: Desc
  */
 import { defineConfig } from 'vite'
@@ -17,4 +17,8 @@ export default defineConfig({
       resolvers: [AntDesignVueResolver()],
     }),
   ],
+
+  server: {
+    open: true,
+  },
 })
