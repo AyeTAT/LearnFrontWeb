@@ -5,10 +5,14 @@ export const useAuthStore = defineStore('authStore', {
     return {
       userName: '',
       exam: {
-        error: 0,
-        success: 0,
-        total: 0,
-        days: 0,
+        practiceFlag: false, // 今日练习状态
+        accessToday: 0, // 今日访问
+        accessTotal: 0, // 总访问
+        errorToday: 0, // 今日错题
+        errorTotal: 0, // 总错题
+        successToday: 0, // 今日答对
+        successTotal: 0, // 今日答对
+        days: 0, // 已完成练习天数
       },
     }
   },
