@@ -7,6 +7,17 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          charset: false,
+          additionalData: '@import "/assets/style/global.less";',
+        },
+      }
+    }
+  },
+
   app: {
     head: {
       viewport: 'width=device-width,initial-scale=1',
