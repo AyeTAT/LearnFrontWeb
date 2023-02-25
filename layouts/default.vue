@@ -1,6 +1,7 @@
 <script setup>
 import { accessToPoetry } from '~/api/footer'
 import { menus } from '~/constants/menuTree'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
 
 const poetry = reactive({
   from: '',
@@ -35,15 +36,32 @@ const findRightHeadContext = (target, findKey, array) => {
   }
 }
 
+const collapsed = useState('collapsed', () => false)
+
+const toggleCollapsed = () => {
+  collapsed.value = !collapsed.value
+}
+
 const headContext = computed(() => {
   loadData()
-  return findRightHeadContext(route.fullPath, 'path', menus).name
+  return route.fullPath && route.fullPath !== '/'
+    ? findRightHeadContext(route.fullPath, 'path', menus).name
+    : null
 })
 </script>
 
 <template>
   <a-layout class="layout">
-    <a-layout-sider class="sider">
+    <a-layout-sider class="sider" v-model:collapsed="collapsed" :trigger="null" collapsible>
+      <a-button
+        block
+        type="primary"
+        style="margin-bottom: 16px; border-radius: 0px !important"
+        @click="toggleCollapsed"
+      >
+        <MenuUnfoldOutlined v-if="collapsed" />
+        <MenuFoldOutlined v-else />
+      </a-button>
       <MenuTree />
     </a-layout-sider>
     <a-layout>
@@ -66,7 +84,7 @@ const headContext = computed(() => {
   width: 100vw;
   height: 100vh;
   .sider {
-    width: 200px;
+    background-color: #fff;
   }
   .header {
     background: #fff;

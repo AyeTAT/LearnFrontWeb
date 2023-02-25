@@ -6,9 +6,9 @@ export const menus = [
     path: '/stuExtra',
     id: 2,
     children: [
-      { name: 'css拓展', path: '/stuExtra/cssStudy', id: 4, children: [] },
-      { name: 'js拓展', path: '/stuExtra/jsStudy', id: 5, children: [] },
-      { name: 'vue拓展', path: '/stuExtra/vueStudy', id: 6, children: [] },
+      { name: 'css拓展', path: '/stuExtra/cssStudy', id: 3, children: [] },
+      { name: 'js拓展', path: '/stuExtra/jsStudy', id: 4, children: [] },
+      { name: 'vue拓展', path: '/stuExtra/vueStudy', id: 5, children: [] },
     ],
   },
 ]
