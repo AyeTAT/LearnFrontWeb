@@ -42,9 +42,12 @@ const toggleCollapsed = () => {
   collapsed.value = !collapsed.value
 }
 
+const excludeRoute = ['/', '/login']
+
 const headContext = computed(() => {
   loadData()
-  return route.fullPath && route.fullPath !== '/'
+
+  return route.fullPath && !excludeRoute.includes(route.fullPath)
     ? findRightHeadContext(route.fullPath, 'path', menus).name
     : null
 })
